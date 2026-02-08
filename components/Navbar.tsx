@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b border-red-600 ${isScrolled ? 'bg-white shadow-lg py-3 md:py-4' : 'bg-transparent py-6 md:py-8'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white shadow-lg py-3 md:py-4' : 'bg-transparent py-6 md:py-8'}`}>
       <div className="container mx-auto px-3 md:px-4 flex justify-between items-center">
         <div className="flex items-center space-x-1.5 md:space-x-2 space-x-reverse">
           <span className="text-2xl md:text-3xl font-black tracking-tighter text-red-600 font-en">3M</span>
@@ -36,6 +36,9 @@ const Navbar: React.FC = () => {
           تواصل معنا
         </button>
       </div>
+      
+      {/* خط أحمر أسفل الناف بار */}
+      <div className={`absolute left-0 right-0 h-[2px] bg-red-600 transition-all duration-500 ${isScrolled ? 'bottom-0' : 'bottom-6'}`}></div>
     </nav>
   );
 };
