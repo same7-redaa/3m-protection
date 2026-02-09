@@ -29,7 +29,7 @@ const Navbar: React.FC = () => {
   const isHomePage = location.pathname === '/';
   // خلفية بيضاء بسيطة في كل الصفحات
   const navBg = !isHomePage ? 'bg-white shadow-lg' : (isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-md');
-  const navPadding = !isHomePage ? 'py-5 md:py-6' : (isScrolled ? 'py-4 md:py-5' : 'py-8 md:py-10');
+  const navPadding = !isHomePage ? 'py-3 md:py-4' : (isScrolled ? 'py-3 md:py-4' : 'py-5 md:py-6');
   const textColor = 'text-black hover:text-red-600';
 
   return (
@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
           to="/"
           className="flex items-center space-x-3 space-x-reverse cursor-pointer hover:scale-105 transition-all duration-300"
         >
-          <img src="/3M protection.png" alt="3M Protection" className="h-12 md:h-16 w-auto object-contain drop-shadow-lg" />
+          <img src="/3M protection.png" alt="3M Protection" className="h-10 md:h-12 w-auto object-contain drop-shadow-lg" />
         </Link>
         
         <div className="hidden lg:flex space-x-10 space-x-reverse">
