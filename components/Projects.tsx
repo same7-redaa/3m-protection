@@ -37,18 +37,18 @@ const ProjectItem: React.FC<{ project: any }> = ({ project }) => {
 
 const Projects: React.FC = () => {
   const projects = [
-    { title: "الأبراج الإدارية", location: "المركز المالي", img: "https://images.unsplash.com/photo-1449156001437-3a16d1dfda00?auto=format&fit=crop&q=80&w=1000" },
-    { title: "الفلل الملكية", location: "المجمع السكني الفاخر", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000" },
-    { title: "المراكز التجارية", location: "المنطقة المركزية", img: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=1000" },
-    { title: "الواجهات الزجاجية", location: "مجمع الابتكار", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" }
+    { title: "أبراج إدارية", location: "المركز المالي", img: "https://images.unsplash.com/photo-1449156001437-3a16d1dfda00?auto=format&fit=crop&q=80&w=1000" },
+    { title: "فلل ملكية", location: "المجمع السكني الفاخر", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000" },
+    { title: "مراكز تجارية", location: "المنطقة المركزية", img: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=1000" },
+    { title: "واجهات زجاجية", location: "مجمع الابتكار", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" }
   ];
 
   return (
-    <section id="أعمالنا" className="py-24 bg-white">
-      <div className="container mx-auto px-3 md:px-4">
+    <section id="projects" className="py-24 bg-white">
+      <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16">
         <div className="text-center mb-20">
           <h2 className="text-red-600 text-lg font-bold mb-4 tracking-[0.2em]">سجل الإنجازات</h2>
-          <h3 className="text-5xl md:text-6xl font-black text-black">مشاريع نفخر بحمايتها</h3>
+          <h3 className="text-5xl md:text-6xl font-black text-black">مشاريع نفتخر فيها</h3>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

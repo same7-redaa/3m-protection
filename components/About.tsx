@@ -15,8 +15,8 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="من نحن" className="py-24 bg-black text-white overflow-hidden">
-      <div className="container mx-auto px-3 md:px-4">
+    <section ref={sectionRef} id="about" className="py-24 bg-black text-white overflow-hidden">
+      <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="relative">
             <div className={`absolute -top-10 -right-10 w-40 h-40 bg-red-600 -z-10 transition-transform duration-1000 ${isInView ? 'translate-x-0 translate-y-0 rotate-12' : 'translate-x-20 translate-y-20 rotate-0'}`}></div>
@@ -27,15 +27,15 @@ const About: React.FC = () => {
             />
             <div className={`absolute bottom-8 left-8 bg-red-600 p-8 transition-all duration-700 delay-300 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <span className="text-4xl md:text-6xl font-black block mb-2">15+</span>
-              <span className="text-xs md:text-sm font-bold uppercase tracking-widest">عاماً من الخبرة</span>
+              <span className="text-xs md:text-sm font-bold uppercase tracking-widest">سنة خبرة</span>
             </div>
           </div>
           
           <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <h2 className="text-red-600 text-lg font-bold mb-6 tracking-[0.2em]">لماذا 3M PROTECTION؟</h2>
-            <h3 className="text-4xl md:text-6xl font-black mb-10 leading-tight">القوة، المتانة، والثقة المطلقة</h3>
+            <h2 className="text-red-600 text-lg font-bold mb-6 tracking-[0.2em]">ليش 3M PROTECTION؟</h2>
+            <h3 className="text-4xl md:text-6xl font-black mb-10 leading-tight">قوة، متانة، وثقة ما تتهز</h3>
             <p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-8">
-              تأسست 3M PROTECTION لتكون المعيار الأول في قطاع حماية الأسطح الإنشائية. نحن لا نقدم مجرد حماية، بل نمنح عملاءنا راحة البال من خلال جودة تنفيذ لا تضاهى.
+              أسسنا 3M PROTECTION عشان تكون المعيار الأول في قطاع حماية الأسطح الإنشائية. ما بس نعطيك حماية، لا نعطيك راحة بال مع جودة تنفيذ ما لها مثيل.
             </p>
             <ul className="space-y-6 mb-12">
               {[

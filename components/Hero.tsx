@@ -28,13 +28,13 @@ const Hero: React.FC = () => {
   const isBefore = sliderPos > 50;
 
   return (
-    <section id="الرئيسية" className="relative min-h-screen pt-20 md:pt-24 pb-12 flex items-center bg-white overflow-hidden">
+    <section id="hero" className="relative min-h-screen pt-20 md:pt-24 pb-12 flex items-center bg-white overflow-hidden">
       {/* نص خلفية مخفي على الهواتف الصغيرة */}
       <div className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/4 rotate-90 text-[8rem] md:text-[14rem] font-black text-gray-50 select-none -z-10 uppercase tracking-tighter opacity-40 md:opacity-60 font-en hidden sm:block">
         3M PROTECTION
       </div>
 
-      <div className="container mx-auto px-3 md:px-4 w-full flex flex-col lg:grid lg:grid-cols-2 gap-10 md:gap-16 lg:items-center">
+      <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 w-full flex flex-col lg:grid lg:grid-cols-2 gap-10 md:gap-16 lg:items-center">
         
         <div className="relative z-10 text-right lg:order-1">
           <div className="inline-flex items-center space-x-3 space-x-reverse mb-4 md:mb-6">
@@ -48,16 +48,41 @@ const Hero: React.FC = () => {
           </h1>
           
           <p className="text-lg md:text-2xl text-gray-600 font-normal leading-relaxed mb-8 md:mb-10 max-w-xl border-r-4 border-red-600 pr-6 md:pr-8">
-            نقدم حلول حماية غير مرئية تحافظ على رونق الرخام وصفاء الزجاج. العرض التفاعلي يوضح قدرة تقنياتنا على عزل العوامل الجوية.
+            نعطيك حلول حماية ما تبين تحافظ على رونق الرخام وصفاء الزجاج. العرض التفاعلي يوضحلك قدرة تقنياتنا على عزل العوامل الجوية.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-start">
-            <button className="bg-red-600 hover:bg-black text-white px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-black transition-all duration-300 shadow-xl">
-              استشارة مجانية
-            </button>
-            <button className="border-2 border-black hover:bg-black hover:text-white text-black px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-black transition-all duration-300">
-              استكشف خدماتنا
-            </button>
+            <a 
+              href="#services"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('services');
+                if (element) {
+                  const offset = 120;
+                  const elementPosition = element.offsetTop - offset;
+                  window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                }
+              }}
+              className="bg-red-600 hover:bg-black text-white px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-black transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-105 text-center relative overflow-hidden group"
+            >
+              <span className="relative z-10">استشارة مجانية</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-black to-red-900 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+            </a>
+            <a 
+              href="#services"
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('services');
+                if (element) {
+                  const offset = 120;
+                  const elementPosition = element.offsetTop - offset;
+                  window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+                }
+              }}
+              className="border-2 border-black hover:bg-black hover:text-white text-black px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-black transition-all duration-500 hover:scale-105 text-center relative overflow-hidden group"
+            >
+              <span className="relative z-10">شوف خدماتنا</span>
+            </a>
           </div>
 
           <div className="mt-10 md:mt-12 flex items-center gap-4 md:gap-6">

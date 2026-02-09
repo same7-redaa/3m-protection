@@ -1,16 +1,17 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
+
   return (
     <footer className="bg-white border-t border-gray-100 pt-20 pb-10">
-      <div className="container mx-auto px-3 md:px-4">
+      <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 space-x-reverse mb-8">
-              <span className="text-3xl font-black tracking-tighter text-red-600 font-en">3M</span>
-              <span className="text-2xl font-bold tracking-tight text-black font-en">PROTECTION</span>
-            </div>
+            <Link to="/" className="inline-block mb-8">
+              <img src="/3M protection.png" alt="3M Protection" className="h-12 w-auto object-contain" />
+            </Link>
             <p className="text-gray-500 text-lg leading-relaxed max-w-md">
               الشركة الرائدة في حلول الحماية للمشاريع الإنشائية الفاخرة. نجمع بين الخبرة الطويلة والتقنيات الحديثة لضمان أقصى درجات الحماية.
             </p>
@@ -19,10 +20,22 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-black font-black text-lg mb-8 uppercase tracking-widest">روابط سريعة</h4>
             <ul className="space-y-4 text-gray-500 font-bold">
-              <li><a href="#" className="hover:text-red-600 transition-colors">خدمات حماية الرخام</a></li>
-              <li><a href="#" className="hover:text-red-600 transition-colors">خدمات حماية الزجاج</a></li>
-              <li><a href="#" className="hover:text-red-600 transition-colors">عن الشركة</a></li>
-              <li><a href="#" className="hover:text-red-600 transition-colors">سياسة الخصوصية</a></li>
+              <li>
+                <Link 
+                  to="/marble-protection"
+                  className="hover:text-red-600 transition-colors cursor-pointer"
+                >
+                  خدمات حماية الرخام
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/glass-protection"
+                  className="hover:text-red-600 transition-colors cursor-pointer"
+                >
+                  خدمات حماية الزجاج
+                </Link>
+              </li>
             </ul>
           </div>
 

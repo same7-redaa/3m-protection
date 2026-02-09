@@ -1,7 +1,15 @@
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const ServiceCard: React.FC<{ title: string; desc: string; image: string }> = ({ title, desc, image }) => {
+interface ServiceCardProps {
+  title: string;
+  desc: string;
+  image: string;
+  onClick?: () => void;
+}
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, desc, image, onClick }) => {
   const [isActive, setIsActive] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -24,7 +32,8 @@ const ServiceCard: React.FC<{ title: string; desc: string; image: string }> = ({
   return (
     <div 
       ref={cardRef}
-      className={`group relative bg-white overflow-hidden shadow-sm border-t-4 transition-all duration-700 ${isActive ? 'border-red-600 translate-y-[-10px] shadow-2xl' : 'border-white translate-y-0 shadow-sm'}`}
+      className={`group relative bg-white overflow-hidden shadow-sm border-t-4 transition-all duration-700 cursor-pointer ${isActive ? 'border-red-600 translate-y-[-10px] shadow-2xl' : 'border-white translate-y-0 shadow-sm'}`}
+      onClick={onClick}
     >
       <div className="h-80 overflow-hidden">
         <img 
@@ -36,21 +45,31 @@ const ServiceCard: React.FC<{ title: string; desc: string; image: string }> = ({
       <div className="p-10">
         <h3 className={`text-3xl font-black mb-4 transition-colors duration-500 ${isActive ? 'text-red-600' : 'text-black'}`}>{title}</h3>
         <p className="text-gray-600 text-lg leading-relaxed mb-8">{desc}</p>
-        <a href="#" className={`inline-flex items-center font-black tracking-widest transition-all duration-500 ${isActive ? 'text-red-600 translate-x-[-10px]' : 'text-gray-400 translate-x-0'}`}>
-          <span>استكشاف المزيد</span>
+        <div className={`inline-flex items-center font-black tracking-widest transition-all duration-500 ${isActive ? 'text-red-600 translate-x-[-10px]' : 'text-gray-400 translate-x-0'}`}>
+          <span>استكشف أكثر</span>
           <svg className={`mr-2 w-5 h-5 transition-transform ${isActive ? 'rotate-0' : 'rotate-180'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
-        </a>
+        </div>
       </div>
     </div>
   );
 };
 
 const Services: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleMarbleClick = () => {
+    navigate('/marble-protection');
+  };
+
+  const handleGlassClick = () => {
+    navigate('/glass-protection');
+  };
+
   return (
-    <section id="خدماتنا" className="py-24 bg-white">
-      <div className="container mx-auto px-3 md:px-4">
+    <section id="services" className="py-24 bg-white">
+      <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20">
           <div>
             <h2 className="text-red-600 text-lg font-bold mb-4 tracking-[0.2em]">حلولنا المتخصصة</h2>
@@ -66,11 +85,13 @@ const Services: React.FC = () => {
             title="أفلام حماية الرخام"
             desc="حماية مطلقة للأسطح الرخامية الفاخرة ضد البقع، الخدوش، وفقدان اللمعان مع الحفاظ على الملمس الطبيعي."
             image="https://images.unsplash.com/photo-1590374585152-ca0e8194c0d6?auto=format&fit=crop&q=80&w=2070"
+            onClick={handleMarbleClick}
           />
           <ServiceCard 
             title="أفلام حماية زجاج المباني"
             desc="تعزيز متانة الواجهات الزجاجية ورفع كفاءة العزل مع توفير حماية فائقة ضد العوامل الجوية المختلفة."
             image="https://images.unsplash.com/photo-1554435493-93422e8220c8?auto=format&fit=crop&q=80&w=2070"
+            onClick={handleGlassClick}
           />
         </div>
       </div>
