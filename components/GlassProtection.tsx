@@ -96,30 +96,34 @@ const StatCard: React.FC<{ stat: string, title: string, desc: string, icon: Reac
   );
 };
 
+
 const GlassProtection: React.FC = () => {
   const [sliderPos, setSliderPos] = useState(50);
   const autoAnimRef = useRef<number | null>(null);
+
+  const beforeImage = "/قبل.jpeg";
+  const afterImage = "/بعد.jpeg";
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // الحركة التلقائية
   useEffect(() => {
     let startTime = Date.now();
     const animate = () => {
       const elapsed = Date.now() - startTime;
-      const newPos = 50 + 45 * Math.sin(elapsed / 800);
+      const newPos = 50 + 45 * Math.sin(elapsed / 1000);
       setSliderPos(newPos);
       autoAnimRef.current = requestAnimationFrame(animate);
     };
     autoAnimRef.current = requestAnimationFrame(animate);
-    return () => { if (autoAnimRef.current) cancelAnimationFrame(autoAnimRef.current); };
+    return () => {
+      if (autoAnimRef.current) cancelAnimationFrame(autoAnimRef.current);
+    };
   }, []);
 
   const isBefore = sliderPos > 50;
-
-  const beforeImage = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2070";
-  const afterImage = "https://images.unsplash.com/photo-1554435493-93422e8220c8?auto=format&fit=crop&q=80&w=2070";
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -132,31 +136,31 @@ const GlassProtection: React.FC = () => {
 
         <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            
+
             {/* النص */}
             <div className="text-right order-2 lg:order-1">
               <div className="inline-flex items-center space-x-3 space-x-reverse mb-4 md:mb-6">
                 <span className="w-10 md:w-16 h-1 bg-red-600"></span>
                 <span className="text-red-600 font-black tracking-[0.1em] text-xs md:text-sm uppercase">حماية متقدمة للزجاج</span>
               </div>
-              
+
               <h1 className="text-4xl md:text-7xl font-black leading-[1.2] md:leading-[1.1] text-white mb-6 md:mb-8">
-                حماية الزجاج <br/><span className="text-red-600 font-en">3M</span> الذكية
+                حماية الزجاج <br /><span className="text-red-600 font-en">3M</span> الذكية
               </h1>
-              
+
               <p className="text-lg md:text-2xl text-gray-300 font-normal leading-relaxed mb-8 md:mb-10 max-w-xl border-r-4 border-red-600 pr-6 md:pr-8">
-                نوفر أفضل حلول حماية الزجاج للمباني الحديثة. شاهد الفرق بين زجاج بدون حماية وزجاج محمي بتقنية 3M.
+                نوفر أفضل حلول حماية الزجاج للمباني الحديثة. اسحب الشريط لرؤية الفرق بين قبل وبعد الحماية.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                <a 
+                <a
                   href="tel:+966000000000"
                   className="bg-red-600 hover:bg-white hover:text-red-600 text-white px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-black transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-105 text-center relative overflow-hidden group"
                 >
                   <span className="relative z-10">استشارة مجانية</span>
                   <span className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
                 </a>
-                <button 
+                <button
                   onClick={() => {
                     const element = document.getElementById('key-benefits');
                     if (element) {
@@ -165,9 +169,9 @@ const GlassProtection: React.FC = () => {
                       window.scrollTo({ top: elementPosition, behavior: 'smooth' });
                     }
                   }}
-                  className="border-2 border-white hover:bg-white hover:text-black text-white px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-black transition-all duration-500 hover:scale-105 relative overflow-hidden group"
+                  className="border-2 border-white hover:bg-white hover:text-black text-white px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-black transition-all duration-500 hover:scale-105"
                 >
-                  <span className="relative z-10">تعرف على المزيد</span>
+                  تعرف على المزيد
                 </button>
               </div>
 
@@ -188,30 +192,57 @@ const GlassProtection: React.FC = () => {
               </div>
             </div>
 
-            {/* صورة المقارنة */}
+            {/* صورة المقارنة المحسّنة */}
             <div className="relative order-1 lg:order-2">
-              <div className="absolute -top-3 -right-3 w-20 h-20 md:w-32 md:h-32 bg-red-600 animate-pulse"></div>
-              <div className="absolute -bottom-3 -left-3 w-20 h-20 md:w-32 md:h-32 bg-red-600 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-              <div className="absolute -inset-1 border-4 border-red-600 animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-              
-              <div className="relative w-full aspect-[4/3] overflow-hidden pointer-events-none bg-gray-100 border-4 border-red-600">
-                <div className={`absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-40 px-4 md:px-8 py-2 md:py-3 text-xs md:text-sm font-black uppercase tracking-[0.1em] shadow-xl transition-all duration-500 border-b-2 md:border-b-4 whitespace-nowrap ${
-                  isBefore ? 'bg-black text-white border-gray-600' : 'bg-red-600 text-white border-red-800'
-                }`}>
-                  {isBefore ? 'قبل الحماية: تلف وخدوش' : 'بعد الحماية: وضوح مثالي'}
+              {/* عناصر ديكور */}
+              <div className="absolute -top-3 -right-3 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-red-600 to-orange-500 opacity-80"></div>
+              <div className="absolute -bottom-3 -left-3 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-green-500 to-emerald-600 opacity-80"></div>
+
+              {/* Container الصورة */}
+              <div
+                className="relative w-full aspect-[4/3] overflow-hidden bg-gray-900 shadow-2xl pointer-events-none select-none"
+              >
+                {/* Badge العلوي */}
+                <div className={`absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-40 px-4 md:px-8 py-2 md:py-3 text-xs md:text-sm font-black uppercase tracking-widest shadow-2xl transition-all duration-500 rounded-full backdrop-blur-md border-2 ${isBefore
+                  ? 'bg-red-600/90 text-white border-red-400'
+                  : 'bg-green-500/90 text-white border-green-300'
+                  }`}>
+                  {isBefore ? '🔴 قبل الحماية' : '✅ بعد الحماية'}
                 </div>
 
+                {/* صورة "بعد" */}
                 <img src={afterImage} alt="بعد الحماية" className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0 w-full h-full z-10" style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
+
+                {/* صورة "قبل" مع clip */}
+                <div
+                  className="absolute inset-0 w-full h-full overflow-hidden"
+                  style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
+                >
                   <img src={beforeImage} alt="قبل الحماية" className="absolute inset-0 w-full h-full object-cover" />
+
+                  {/* تأثير overlay لـ "قبل" */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 to-transparent pointer-events-none"></div>
                 </div>
 
-                <div className="absolute top-0 bottom-0 z-30 w-0.5 md:w-1 bg-white shadow-[0_0_15px_rgba(0,0,0,0.5)]" style={{ left: `${sliderPos}%` }}>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 bg-white border-[4px] md:border-[5px] border-red-600 rounded-full flex items-center justify-center shadow-xl">
-                    <div className="flex gap-0.5 md:gap-1">
-                      <div className="w-0.5 md:w-1 h-4 md:h-5 bg-red-600 rounded-full"></div>
-                      <div className="w-0.5 md:w-1 h-4 md:h-5 bg-red-600 rounded-full opacity-50"></div>
-                    </div>
+                {/* ملصقات الجانبين */}
+                <div className={`absolute bottom-4 md:bottom-6 left-4 md:left-6 z-30 transition-opacity duration-300 ${sliderPos > 20 ? 'opacity-100' : 'opacity-0'}`}>
+                  <div className="bg-green-500/90 backdrop-blur-sm px-3 md:px-4 py-2 md:py-3 rounded-lg border-2 border-green-300 shadow-xl">
+                    <div className="text-white font-black text-xs md:text-sm">بعد الحماية</div>
+                    <div className="text-white/90 text-[10px] md:text-xs">✨ وضوح مثالي</div>
+                  </div>
+                </div>
+
+                <div className={`absolute bottom-4 md:bottom-6 right-4 md:right-6 z-30 transition-opacity duration-300 ${sliderPos < 80 ? 'opacity-100' : 'opacity-0'}`}>
+                  <div className="bg-red-600/90 backdrop-blur-sm px-3 md:px-4 py-2 md:py-3 rounded-lg border-2 border-red-400 shadow-xl text-right">
+                    <div className="text-white font-black text-xs md:text-sm">قبل الحماية</div>
+                    <div className="text-white/90 text-[10px] md:text-xs">⚠️ تلف وخدوش</div>
+                  </div>
+                </div>
+
+                {/* رسالة التوجيه */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-50 md:opacity-0 transition-opacity duration-500">
+                  <div className="bg-black/80 backdrop-blur-sm px-4 py-2 rounded-full text-white text-xs font-bold">
+                    ← اسحب للمقارنة →
                   </div>
                 </div>
               </div>
@@ -219,6 +250,7 @@ const GlassProtection: React.FC = () => {
           </div>
         </div>
       </section>
+
 
       {/* Key Benefits Section */}
       <section id="key-benefits" className="py-24 bg-white">
@@ -235,7 +267,7 @@ const GlassProtection: React.FC = () => {
               تعتبر أفلام النوافذ من أفضل تقنيات ترشيد الطاقة، وتتمتع بأحد أسرع معدلات العائد، حيث يبلغ حوالي ثلاث سنوات فقط.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -293,7 +325,7 @@ const GlassProtection: React.FC = () => {
               قلّل استهلاك الطاقة والانبعاثات الكربونية
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -345,7 +377,7 @@ const GlassProtection: React.FC = () => {
               توفير الطاقة مفيد لكل الأعمال
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
@@ -385,7 +417,7 @@ const GlassProtection: React.FC = () => {
             </div>
             <h2 className="text-4xl md:text-6xl font-black">إحصائيات مهمة</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -421,34 +453,34 @@ const GlassProtection: React.FC = () => {
             احصل على تقييم احترافي مجاني لمشروعك وتقدير دقيق للتوفير المتوقع في فواتير الطاقة. فريقنا المتخصص جاهز لمساعدتك في اتخاذ القرار الصحيح.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a 
+            <a
               href="tel:+966000000000"
               className="bg-white text-red-600 px-12 py-5 text-xl font-black hover:bg-black hover:text-white transition-all duration-500 shadow-2xl hover:shadow-xl hover:scale-105 text-center relative overflow-hidden group"
             >
               <span className="relative z-10">اطلب تدقيق طاقة مجاني</span>
               <span className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
             </a>
-            <a 
+            <a
               href="mailto:info@3mprotection.com"
               className="border-2 border-white text-white px-12 py-5 text-xl font-black hover:bg-white hover:text-red-600 transition-all duration-500 hover:scale-105 text-center relative overflow-hidden group"
             >
               <span className="relative z-10">تواصل معنا الآن</span>
             </a>
           </div>
-          
+
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
-              { 
+              {
                 icon: <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>,
-                text: "استشارة فورية" 
+                text: "استشارة فورية"
               },
-              { 
+              {
                 icon: <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>,
-                text: "تقرير توفير مفصل" 
+                text: "تقرير توفير مفصل"
               },
-              { 
+              {
                 icon: <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
-                text: "ضمان الجودة" 
+                text: "ضمان الجودة"
               }
             ].map((item, idx) => (
               <div key={idx} className="text-white/90">
