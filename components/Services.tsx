@@ -101,7 +101,7 @@ const Services: React.FC = () => {
           <ServiceCard
             title="أفلام حماية الرخام"
             desc="حماية مطلقة للأسطح الرخامية الفاخرة ضد البقع، الخدوش، وفقدان اللمعان مع الحفاظ على الملمس الطبيعي."
-            image="https://images.unsplash.com/photo-1590374585152-ca0e8194c0d6?auto=format&fit=crop&q=80&w=2070"
+            image="/vew.png"
             onClick={handleMarbleClick}
           />
           <ServiceCard

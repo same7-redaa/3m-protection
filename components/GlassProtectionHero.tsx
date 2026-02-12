@@ -102,7 +102,7 @@ const GlassProtectionHero: React.FC<HeroProps> = ({ beforeImage, afterImage }) =
                         {/* الوصف */}
                         <div className="opacity-0 group-hover/after:opacity-100 transition-all duration-700 delay-200 transform -translate-x-10 group-hover/after:translate-x-0">
                             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-md border-l-4 border-green-500 pl-6 mr-auto">
-                                زجاج محمي بتقنية 3M يوفر حماية شاملة ووضوح مثالي
+                                زجاج محمي بتقنية <span className="font-en">3M</span> يوفر حماية شاملة ووضوح مثالي
                             </p>
 
                             {/* المميزات */}

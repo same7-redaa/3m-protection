@@ -88,29 +88,9 @@ const LocationCard: React.FC<{ title: string }> = ({ title }) => {
 };
 
 const MarbleProtection: React.FC = () => {
-  const [sliderPos, setSliderPos] = useState(50);
-  const autoAnimRef = useRef<number | null>(null);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  useEffect(() => {
-    let startTime = Date.now();
-    const animate = () => {
-      const elapsed = Date.now() - startTime;
-      const newPos = 50 + 45 * Math.sin(elapsed / 800);
-      setSliderPos(newPos);
-      autoAnimRef.current = requestAnimationFrame(animate);
-    };
-    autoAnimRef.current = requestAnimationFrame(animate);
-    return () => { if (autoAnimRef.current) cancelAnimationFrame(autoAnimRef.current); };
-  }, []);
-
-  const isBefore = sliderPos > 50;
-
-  const beforeImage = "https://images.unsplash.com/photo-1503387762-592dea58ef21?auto=format&fit=crop&q=80&w=2070";
-  const afterImage = "https://images.unsplash.com/photo-1590374585152-ca0e8194c0d6?auto=format&fit=crop&q=80&w=2070";
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -136,15 +116,27 @@ const MarbleProtection: React.FC = () => {
               </h1>
               
               <p className="text-lg md:text-2xl text-gray-300 font-normal leading-relaxed mb-8 md:mb-10 max-w-xl border-r-4 border-red-600 pr-6 md:pr-8">
-                نوفر أفضل حلول حماية الرخام للمشاريع الفاخرة. شاهد الفرق بين سطح بدون حماية وسطح محمي بتقنية 3M المتطورة.
+                نوفر أفضل حلول حماية الرخام للمشاريع الفاخرة. شاهد الفرق بين سطح بدون حماية وسطح محمي بتقنية <span className="font-en">3M</span> المتطورة.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-start">
                 <a 
-                  href="tel:+966000000000"
+                  href="tel:+966535316895"
                   className="bg-red-600 hover:bg-white hover:text-red-600 text-white px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-black transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-105 text-center relative overflow-hidden group"
                 >
                   <span className="relative z-10">احصل على عرض سعر</span>
+                  <span className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+                </a>
+                <a 
+                  href="https://wa.me/966535316895"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-green-600 hover:bg-white hover:text-green-600 text-white px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-black transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-105 text-center relative overflow-hidden group inline-flex items-center space-x-2 space-x-reverse justify-center"
+                >
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  </svg>
+                  <span className="relative z-10">واتساب</span>
                   <span className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
                 </a>
                 <button 
@@ -179,31 +171,28 @@ const MarbleProtection: React.FC = () => {
               </div>
             </div>
 
-            {/* صورة المقارنة */}
+            {/* معرض الصور */}
             <div className="relative order-1 lg:order-2">
               <div className="absolute -top-3 -right-3 w-20 h-20 md:w-32 md:h-32 bg-red-600 animate-pulse"></div>
               <div className="absolute -bottom-3 -left-3 w-20 h-20 md:w-32 md:h-32 bg-red-600 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
               <div className="absolute -inset-1 border-4 border-red-600 animate-pulse" style={{ animationDelay: '0.3s' }}></div>
               
-              <div className="relative w-full aspect-[4/3] overflow-hidden pointer-events-none bg-gray-100 border-4 border-red-600">
-                <div className={`absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-40 px-4 md:px-8 py-2 md:py-3 text-xs md:text-sm font-black uppercase tracking-[0.1em] shadow-xl transition-all duration-500 border-b-2 md:border-b-4 whitespace-nowrap ${
-                  isBefore ? 'bg-black text-white border-gray-600' : 'bg-red-600 text-white border-red-800'
-                }`}>
-                  {isBefore ? 'قبل الحماية: بهتان وبقع' : 'بعد الحماية: لمعان دائم'}
+              <div className="relative grid grid-cols-2 gap-4 border-4 border-red-600 p-4 bg-white">
+                <div className="relative aspect-square overflow-hidden group">
+                  <img src="/صور رخام/split-image-composition-before-and-after-compariso.jpeg" alt="حماية الرخام" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-
-                <img src={afterImage} alt="بعد الحماية" className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0 w-full h-full z-10" style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
-                  <img src={beforeImage} alt="قبل الحماية" className="absolute inset-0 w-full h-full object-cover" />
+                <div className="relative aspect-square overflow-hidden group">
+                  <img src="/صور رخام/split-image-composition-before-and-after-compariso (1).jpeg" alt="حماية الرخام" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-
-                <div className="absolute top-0 bottom-0 z-30 w-0.5 md:w-1 bg-white shadow-[0_0_15px_rgba(0,0,0,0.5)]" style={{ left: `${sliderPos}%` }}>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 bg-white border-[4px] md:border-[5px] border-red-600 rounded-full flex items-center justify-center shadow-xl">
-                    <div className="flex gap-0.5 md:gap-1">
-                      <div className="w-0.5 md:w-1 h-4 md:h-5 bg-red-600 rounded-full"></div>
-                      <div className="w-0.5 md:w-1 h-4 md:h-5 bg-red-600 rounded-full opacity-50"></div>
-                    </div>
-                  </div>
+                <div className="relative aspect-square overflow-hidden group">
+                  <img src="/صور رخام/image-1770916643234.jpeg" alt="حماية الرخام" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="relative aspect-square overflow-hidden group">
+                  <img src="/صور رخام/image-1770916643234 (1).jpeg" alt="حماية الرخام" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>
             </div>
@@ -220,7 +209,7 @@ const MarbleProtection: React.FC = () => {
               <span className="text-red-600 font-black tracking-[0.1em] text-sm uppercase">لماذا تختار PPF</span>
             </div>
             <h2 className="text-4xl md:text-6xl font-black text-black">
-              مزايا حماية الرخام بتقنية 3M
+              مزايا حماية الرخام بتقنية <span className="font-en">3M</span>
             </h2>
           </div>
           
@@ -276,22 +265,37 @@ const MarbleProtection: React.FC = () => {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { 
-                name: "أفلام شفافة عالية الوضوح", 
-                desc: "مثالية للحفاظ على مظهر ولون السطح الأصلي بشفافية تامة، مع حماية متقدمة ضد الخدوش والبقع.",
+                name: "أفلام شفافة فائقة الوضوح", 
+                desc: "تقنية متقدمة توفر حماية غير مرئية بشفافية مطلقة، تحافظ على الجمال الطبيعي والمظهر الأصلي للرخام دون أي تأثير على الشكل أو اللمعان.",
                 icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
               },
               { 
-                name: "أفلام مقاومة للحرارة", 
-                desc: "مصممة خصيصًا لتتحمل درجات الحرارة العالية، مما يجعلها مثالية لأسطح المطابخ والمناطق المعرضة للحرارة.",
+                name: "أفلام عاكسة لامعة", 
+                desc: "تقنية متقدمة تعزز اللمعان الطبيعي للأسطح، توفر حماية قوية مع إضافة لمعان رائع يبرز جمال الرخام والأحجار الطبيعية.",
+                icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+              },
+              { 
+                name: "أفلام مطفية أنيقة", 
+                desc: "تصميم عصري غير عاكس يقلل من الوهج وبصمات الأصابع، يوفر مظهراً مطفياً راقياً مع حماية فائقة ضد جميع أنواع الأضرار.",
+                icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+              },
+              { 
+                name: "أفلام مقاومة للحرارة العالية", 
+                desc: "حماية استثنائية ضد الحرارة والأضرار الناتجة عن أواني الطهي الساخنة والأجهزة، مصممة خصيصاً لأسطح المطابخ والمناطق ذات درجات الحرارة العالية.",
                 icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" /></svg>
               },
               { 
-                name: "أفلام الشفاء الذاتي", 
-                desc: "تقنية متطورة تجعل الخدوش البسيطة تختفي تلقائيًا عند التعرض للحرارة البسيطة مثل حرارة الشمس.",
-                icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+                name: "أفلام مقاومة لبصمات الأصابع", 
+                desc: "تقنية طلاء متقدمة تمنع ظهور بصمات الأصابع والبقع، تحافظ على نظافة الأسطح وبريقها مع الحد الأدنى من الصيانة المطلوبة.",
+                icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" /></svg>
+              },
+              { 
+                name: "أفلام حماية من الأشعة فوق البنفسجية", 
+                desc: "حماية فائقة ضد الأشعة فوق البنفسجية الضارة التي تمنع التلاشي وتغير اللون، تحافظ على الألوان الزاهية والجمال الطبيعي لأسطحك لسنوات.",
+                icon: <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
               }
             ].map((type, idx) => (
               <TypeCard key={idx} title={type.name} desc={type.desc} icon={type.icon} />
@@ -370,6 +374,43 @@ const MarbleProtection: React.FC = () => {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16">
+          <div className="text-right mb-16">
+            <div className="inline-flex items-center space-x-3 space-x-reverse mb-4">
+              <span className="w-16 h-1 bg-red-600"></span>
+              <span className="text-red-600 font-black tracking-[0.1em] text-sm uppercase">معرض الأعمال</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-black text-black">
+              مشاريعنا في حماية الرخام
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { img: '/صور رخام/split-image-composition-before-and-after-compariso.jpeg', title: 'حماية رخام فاخرة' },
+              { img: '/صور رخام/split-image-composition-before-and-after-compariso (1).jpeg', title: 'أسطح رخامية محمية' },
+              { img: '/صور رخام/image-1770916643234.jpeg', title: 'مشروع رخام متميز' },
+              { img: '/صور رخام/image-1770916643234 (1).jpeg', title: 'رخام بحماية <span className="font-en font-cairo">3M</span>' },
+            ].map((item, idx) => (
+              <div key={idx} className="group relative h-[350px] md:h-[400px] overflow-hidden bg-black rounded-lg shadow-xl">
+                <img 
+                  src={item.img} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                  <h4 className="text-white text-xl md:text-2xl font-black transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
+                      dangerouslySetInnerHTML={{ __html: item.title }}>
+                  </h4>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-red-600">
         <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-16 text-center">
@@ -377,13 +418,29 @@ const MarbleProtection: React.FC = () => {
           <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
             اتصل بنا للحصول على استشارة مجانية وتقييم متخصص لأسطح الرخام لديك.
           </p>
-          <a 
-            href="tel:+966000000000"
-            className="bg-white text-red-600 px-12 py-5 text-xl font-black hover:bg-black hover:text-white transition-all duration-500 shadow-2xl hover:shadow-xl hover:scale-105 inline-block relative overflow-hidden group"
-          >
-            <span className="relative z-10">احصل على عرض سعر</span>
-            <span className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a 
+              href="tel:+966535316895"
+              className="bg-white text-red-600 px-12 py-5 text-xl font-black hover:bg-black hover:text-white transition-all duration-500 shadow-2xl hover:shadow-xl hover:scale-105 inline-flex items-center space-x-3 space-x-reverse relative overflow-hidden group"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              <span className="relative z-10">اتصل الآن</span>
+              <span className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
+            </a>
+            <a 
+              href="https://wa.me/966535316895"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-white text-white px-12 py-5 text-xl font-black hover:bg-white hover:text-red-600 transition-all duration-500 hover:scale-105 inline-flex items-center space-x-3 space-x-reverse relative overflow-hidden group"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+              <span className="relative z-10">تواصل واتساب</span>
+            </a>
+          </div>
         </div>
       </section>
     </div>

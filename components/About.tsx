@@ -32,10 +32,10 @@ const About: React.FC = () => {
           </div>
           
           <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <h2 className="text-red-600 text-lg font-bold mb-6 tracking-[0.2em]">ليش 3M PROTECTION؟</h2>
+            <h2 className="text-red-600 text-lg font-bold mb-6 tracking-[0.2em]">ليش <span className="font-en">3M PROTECTION</span>؟</h2>
             <h3 className="text-4xl md:text-6xl font-black mb-10 leading-tight">قوة، متانة، وثقة ما تتهز</h3>
             <p className="text-gray-400 text-lg md:text-xl leading-relaxed mb-8">
-              أسسنا 3M PROTECTION عشان تكون المعيار الأول في قطاع حماية الأسطح الإنشائية. ما بس نعطيك حماية، لا نعطيك راحة بال مع جودة تنفيذ ما لها مثيل.
+              أسسنا <span className="font-en">3M PROTECTION</span> عشان تكون المعيار الأول في قطاع حماية الأسطح الإنشائية. ما بس نعطيك حماية، لا نعطيك راحة بال مع جودة تنفيذ ما لها مثيل.
             </p>
             <ul className="space-y-6 mb-12">
               {[
