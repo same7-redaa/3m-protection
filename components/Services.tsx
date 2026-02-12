@@ -49,8 +49,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, desc, image, onClick }
         {/* زر استكشف أكثر المميز */}
         <button
           className={`group/btn relative overflow-hidden px-8 py-4 rounded-full font-black tracking-widest transition-all duration-500 transform ${isActive
-              ? 'bg-gradient-to-r from-red-600 via-red-500 to-orange-500 text-white shadow-2xl shadow-red-500/50 scale-105 hover:scale-110 hover:shadow-red-600/70'
-              : 'bg-gray-100 text-gray-500 shadow-sm hover:bg-gray-200'
+            ? 'bg-gradient-to-r from-red-600 via-red-500 to-orange-500 text-white shadow-2xl shadow-red-500/50 scale-105 hover:scale-110 hover:shadow-red-600/70'
+            : 'bg-gray-100 text-gray-500 shadow-sm hover:bg-gray-200'
             }`}
         >
           {/* تأثير التوهج المتحرك */}
@@ -107,7 +107,7 @@ const Services: React.FC = () => {
           <ServiceCard
             title="أفلام حماية زجاج المباني"
             desc="تعزيز متانة الواجهات الزجاجية ورفع كفاءة العزل مع توفير حماية فائقة ضد العوامل الجوية المختلفة."
-            image="https://images.unsplash.com/photo-1554435493-93422e8220c8?auto=format&fit=crop&q=80&w=2070"
+            image="/glass-protection/بعد.jpeg"
             onClick={handleGlassClick}
           />
         </div>
