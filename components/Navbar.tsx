@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
           to="/"
           className="flex items-center space-x-3 space-x-reverse cursor-pointer hover:scale-105 transition-all duration-300"
         >
-          <img src="/3M protection.png" alt="3M Protection" className="h-10 md:h-12 w-auto object-contain drop-shadow-lg" />
+          <img src="/logo-new.png" alt="3M Protection" className="h-10 md:h-12 w-auto object-contain drop-shadow-lg" />
         </Link>
         
         <div className="hidden lg:flex space-x-10 space-x-reverse">

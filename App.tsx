@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import IntroSplash from './components/IntroSplash';
 import GlassProtection from './components/GlassProtection';
 import MarbleProtection from './components/MarbleProtection';
+import FloatingButtons from './components/FloatingButtons';
 
 const App: React.FC = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -52,6 +53,7 @@ const App: React.FC = () => {
         </main>
         <Footer />
       </div>
+      <FloatingButtons />
     </div>
   );
 };

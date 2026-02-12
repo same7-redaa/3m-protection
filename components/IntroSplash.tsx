@@ -49,7 +49,7 @@ const IntroSplash: React.FC = () => {
       {/* شعار 3M */}
       <div className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-1000 ${phase === 'logo' ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}>
         <div className="flex flex-col md:flex-row items-center md:space-x-6 md:space-x-reverse mb-4 md:mb-6">
-          <span className="text-7xl md:text-9xl font-black tracking-tighter text-red-600 drop-shadow-2xl">3M</span>
+          <span className="text-7xl md:text-9xl font-black tracking-tighter text-red-600 drop-shadow-2xl" style={{ fontFamily: "'Cairo', sans-serif" }}>3M</span>
           <span className="text-3xl md:text-5xl font-bold tracking-[0.2em] md:tracking-[0.3em] text-white mt-2 md:mt-0">PROTECTION</span>
         </div>
         <div className="w-24 md:w-32 h-1 bg-red-600 animate-pulse mb-4"></div>

@@ -42,8 +42,11 @@ const Hero: React.FC = () => {
             <span className="text-red-600 font-black tracking-[0.1em] text-xs md:text-sm uppercase">أنظمة حماية متطورة</span>
           </div>
           
-          <h1 className="text-4xl md:text-7xl font-black leading-[1.2] md:leading-[1.1] text-black mb-6 md:mb-8">
-            حماية <span className="text-red-600 font-en">3M</span> <br />
+          <h1 className="text-4xl md:text-7xl font-black leading-[1.2] md:leading-[1.1] text-black mb-6 md:mb-8 text-right">
+            <span className="inline-flex items-center gap-3">
+              حماية <img src="/logo-new.png" alt="3M" className="h-12 md:h-20 w-auto" />
+            </span>
+            <br />
             بلمسة عصرية
           </h1>
           
