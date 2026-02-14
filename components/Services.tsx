@@ -32,7 +32,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, desc, image, onClick }
   return (
     <div
       ref={cardRef}
-      className={`group relative bg-white overflow-hidden shadow-sm border-t-4 transition-all duration-700 cursor-pointer ${isActive ? 'border-red-600 translate-y-[-10px] shadow-2xl' : 'border-white translate-y-0 shadow-sm'}`}
+      className={`group relative bg-white shadow-sm border-t-4 transition-all duration-700 cursor-pointer ${isActive ? 'border-red-600 translate-y-[-10px] shadow-2xl' : 'border-white translate-y-0 shadow-sm'}`}
       onClick={onClick}
     >
       <div className="h-80 overflow-hidden">
@@ -48,14 +48,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, desc, image, onClick }
 
         {/* زر استكشف أكثر المميز */}
         <button
-          className={`group/btn relative overflow-hidden px-8 py-4 rounded-full font-black tracking-widest transition-all duration-500 transform ${isActive
+          className={`group/btn relative px-8 py-4 rounded-full font-black tracking-widest transition-all duration-500 transform ${isActive
             ? 'bg-gradient-to-r from-red-600 via-red-500 to-orange-500 text-white shadow-2xl shadow-red-500/50 scale-105 hover:scale-110 hover:shadow-red-600/70'
             : 'bg-gray-100 text-gray-500 shadow-sm hover:bg-gray-200'
             }`}
         >
-          {/* تأثير التوهج المتحرك */}
-          <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover/btn:opacity-30 transition-opacity duration-500 ${isActive ? 'animate-shimmer' : ''}`}></div>
-
           <span className="relative z-10 flex items-center gap-3">
             <span>استكشف أكثر</span>
             <svg
@@ -99,16 +96,16 @@ const Services: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <ServiceCard
-            title="أفلام حماية الرخام"
-            desc="حماية مطلقة للأسطح الرخامية الفاخرة ضد البقع، الخدوش، وفقدان اللمعان مع الحفاظ على الملمس الطبيعي."
-            image="/vew.png"
-            onClick={handleMarbleClick}
-          />
-          <ServiceCard
             title="أفلام حماية زجاج المباني"
             desc="تعزيز متانة الواجهات الزجاجية ورفع كفاءة العزل مع توفير حماية فائقة ضد العوامل الجوية المختلفة."
             image="/glass-protection/بعد.jpeg"
             onClick={handleGlassClick}
+          />
+          <ServiceCard
+            title="أفلام حماية الرخام"
+            desc="حماية مطلقة للأسطح الرخامية الفاخرة ضد البقع، الخدوش، وفقدان اللمعان مع الحفاظ على الملمس الطبيعي."
+            image="/vew.png"
+            onClick={handleMarbleClick}
           />
         </div>
       </div>

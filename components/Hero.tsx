@@ -112,38 +112,17 @@ const Hero: React.FC = () => {
 
             <img src={afterImage} alt="After" className="absolute inset-0 w-full h-full object-cover" />
             
-            {/* Mobile/Tablet: Horizontal comparison */}
+            {/* المقارنة الأفقية - للموبايل والديسكتوب */}
             <div 
-              className="absolute inset-0 w-full h-full z-10 lg:hidden"
-              style={{ clipPath: `inset(0 0 0 ${sliderPos}%)` }}
-            >
-              <img src={beforeImage} alt="Before" className="absolute inset-0 w-full h-full object-cover" />
-            </div>
-            
-            {/* Desktop: Vertical comparison */}
-            <div 
-              className="absolute inset-0 w-full h-full z-10 hidden lg:block"
+              className="absolute inset-0 w-full h-full z-10"
               style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
             >
               <img src={beforeImage} alt="Before" className="absolute inset-0 w-full h-full object-cover" />
             </div>
 
-            {/* Mobile/Tablet: Horizontal slider line */}
+            {/* خط عمودي يتحرك أفقياً - للموبايل والديسكتوب */}
             <div 
-              className="absolute left-0 right-0 z-30 h-0.5 md:h-1 bg-white shadow-[0_0_15px_rgba(0,0,0,0.5)] lg:hidden"
-              style={{ top: `${sliderPos}%` }}
-            >
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-16 md:h-16 bg-white border-[4px] md:border-[6px] border-red-600 rounded-full flex items-center justify-center shadow-xl">
-                <div className="flex flex-col gap-0.5 md:gap-1">
-                  <div className="h-0.5 md:h-1 w-4 md:w-6 bg-red-600 rounded-full"></div>
-                  <div className="h-0.5 md:h-1 w-4 md:w-6 bg-red-600 rounded-full opacity-50"></div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Desktop: Vertical slider line */}
-            <div 
-              className="absolute top-0 bottom-0 z-30 w-0.5 md:w-1 bg-white shadow-[0_0_15px_rgba(0,0,0,0.5)] hidden lg:block"
+              className="absolute top-0 bottom-0 z-30 w-0.5 md:w-1 bg-white shadow-[0_0_15px_rgba(0,0,0,0.5)]"
               style={{ left: `${sliderPos}%` }}
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-16 md:h-16 bg-white border-[4px] md:border-[6px] border-red-600 rounded-full flex items-center justify-center shadow-xl">
