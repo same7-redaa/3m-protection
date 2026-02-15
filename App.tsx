@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import Services from './components/Services';
 import About from './components/About';
 import Projects from './components/Projects';
+import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import IntroSplash from './components/IntroSplash';
@@ -44,6 +45,7 @@ const App: React.FC = () => {
                 <Services />
                 <About />
                 <Projects />
+                <Testimonials />
                 <CTA />
               </>
             } />
