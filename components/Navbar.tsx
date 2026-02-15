@@ -138,6 +138,26 @@ const Navbar: React.FC = () => {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-500 group-hover:w-full"></span>
             </Link>
           )}
+
+          {/* تواصل معنا */}
+          {isHomePage ? (
+            <button
+              onClick={() => scrollToSection('contact')}
+              className={`text-base md:text-lg font-black transition-all duration-500 cursor-pointer relative group ${textColor}`}
+            >
+              تواصل معنا
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-500 group-hover:w-full"></span>
+            </button>
+          ) : (
+            <Link
+              to="/"
+              onClick={() => setTimeout(() => scrollToSection('contact'), 100)}
+              className={`text-base md:text-lg font-black transition-all duration-500 cursor-pointer relative group ${textColor}`}
+            >
+              تواصل معنا
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-500 group-hover:w-full"></span>
+            </Link>
+          )}
         </div>
 
         <a 
