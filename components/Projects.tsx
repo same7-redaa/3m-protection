@@ -48,8 +48,8 @@ const Projects: React.FC = () => {
     { title: "حماية زجاج كاملة", category: "حماية الزجاج", img: "/glass-protection/After.jpeg" },
     
     // صور الرخام
-    { title: "حماية رخام فاخرة", category: "حماية الرخام", img: "/صور رخام/split-image-composition-before-and-after-compariso.jpeg" },
-    { title: "أسطح رخامية محمية", category: "حماية الرخام", img: "/صور رخام/split-image-composition-before-and-after-compariso (1).jpeg" },
+    { title: "حماية رخام فاخرة", category: "حماية الرخام", img: "/صور رخام/split-image-composition-vertical-center-split-stri (2).jpeg" },
+    { title: "أسطح رخامية محمية", category: "حماية الرخام", img: "/صور رخام/split-image-composition-vertical-center-split-stri (3).jpeg" },
     { title: "مشروع رخام متميز", category: "حماية الرخام", img: "/صور رخام/image-1770916643234.jpeg" },
     { title: "رخام بحماية 3M", category: "حماية الرخام", img: "/صور رخام/image-1770916643234 (1).jpeg" },
   ];

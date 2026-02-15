@@ -96,7 +96,7 @@ const Services: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <ServiceCard
-            title="أفلام حماية زجاج المباني"
+            title="أفلام العازل الحراري للزجاج"
             desc="تعزيز متانة الواجهات الزجاجية ورفع كفاءة العزل مع توفير حماية فائقة ضد العوامل الجوية المختلفة."
             image="/glass-protection/بعد.jpeg"
             onClick={handleGlassClick}

@@ -179,11 +179,11 @@ const MarbleProtection: React.FC = () => {
               
               <div className="relative grid grid-cols-2 gap-4 border-4 border-red-600 p-4 bg-white">
                 <div className="relative aspect-square overflow-hidden group">
-                  <img src="/صور رخام/split-image-composition-before-and-after-compariso.jpeg" alt="حماية الرخام" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src="/صور رخام/split-image-composition-vertical-center-split-stri (2).jpeg" alt="حماية الرخام" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="relative aspect-square overflow-hidden group">
-                  <img src="/صور رخام/split-image-composition-before-and-after-compariso (1).jpeg" alt="حماية الرخام" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src="/صور رخام/split-image-composition-vertical-center-split-stri (3).jpeg" alt="حماية الرخام" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="relative aspect-square overflow-hidden group">
@@ -389,8 +389,8 @@ const MarbleProtection: React.FC = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { img: '/صور رخام/split-image-composition-before-and-after-compariso.jpeg', title: 'حماية رخام فاخرة' },
-              { img: '/صور رخام/split-image-composition-before-and-after-compariso (1).jpeg', title: 'أسطح رخامية محمية' },
+              { img: '/صور رخام/split-image-composition-vertical-center-split-stri (2).jpeg', title: 'حماية رخام فاخرة' },
+              { img: '/صور رخام/split-image-composition-vertical-center-split-stri (3).jpeg', title: 'أسطح رخامية محمية' },
               { img: '/صور رخام/image-1770916643234.jpeg', title: 'مشروع رخام متميز' },
               { img: '/صور رخام/image-1770916643234 (1).jpeg', title: 'رخام بحماية <span className="font-en font-cairo">3M</span>' },
             ].map((item, idx) => (

@@ -137,15 +137,15 @@ const GlassProtection: React.FC = () => {
             <div className="text-right order-2 lg:order-1">
               <div className="inline-flex items-center space-x-3 space-x-reverse mb-4 md:mb-6">
                 <span className="w-10 md:w-16 h-1 bg-red-600"></span>
-                <span className="text-red-600 font-black tracking-[0.1em] text-xs md:text-sm uppercase">حماية متقدمة للزجاج</span>
+                <span className="text-red-600 font-black tracking-[0.1em] text-xs md:text-sm uppercase">عزل حراري متقدم للزجاج</span>
               </div>
 
               <h1 className="text-4xl md:text-7xl font-black leading-[1.2] md:leading-[1.1] text-white mb-6 md:mb-8">
-                حماية الزجاج <br /><span className="text-red-600 font-en">3M</span> الذكية
+                العازل الحراري <br /><span className="text-red-600 font-en">3M</span> للزجاج
               </h1>
 
               <p className="text-lg md:text-2xl text-gray-300 font-normal leading-relaxed mb-8 md:mb-10 max-w-xl border-r-4 border-red-600 pr-6 md:pr-8">
-                نوفر أفضل حلول حماية الزجاج للمباني الحديثة. شاهد الفرق بين زجاج بدون حماية وزجاج محمي بتقنية <span className="font-en">3M</span>.
+                نوفر أفضل حلول العزل الحراري للزجاج للمباني الحديثة. شاهد الفرق بين زجاج بدون عازل وزجاج معزول بتقنية <span className="font-en">3M</span>.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-start">
@@ -209,12 +209,12 @@ const GlassProtection: React.FC = () => {
               <div className="relative w-full aspect-[4/3] overflow-hidden pointer-events-none bg-gray-100 border-4 border-red-600">
                 <div className={`absolute top-4 md:top-6 left-1/2 -translate-x-1/2 z-40 px-4 md:px-8 py-2 md:py-3 text-xs md:text-sm font-black uppercase tracking-[0.1em] shadow-xl transition-all duration-500 border-b-2 md:border-b-4 whitespace-nowrap ${isBefore ? 'bg-black text-white border-gray-600' : 'bg-red-600 text-white border-red-800'
                   }`}>
-                  {isBefore ? 'قبل الحماية: تلف وخدوش' : 'بعد الحماية: وضوح مثالي'}
+                  {isBefore ? 'قبل العازل: تلف وخدوش' : 'بعد العازل: وضوح مثالي'}
                 </div>
 
-                <img src={afterImage} alt="بعد الحماية" className="absolute inset-0 w-full h-full object-cover" />
+                <img src={afterImage} alt="بعد العازل" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 w-full h-full z-10" style={{ clipPath: `inset(0 0 ${100 - sliderPos}% 0)` }}>
-                  <img src={beforeImage} alt="قبل الحماية" className="absolute inset-0 w-full h-full object-cover" />
+                  <img src={beforeImage} alt="قبل العازل" className="absolute inset-0 w-full h-full object-cover" />
                 </div>
 
                 <div className="absolute left-0 right-0 z-30 h-0.5 md:h-1 bg-white shadow-[0_0_15px_rgba(0,0,0,0.5)]" style={{ top: `${sliderPos}%` }}>
